@@ -7,9 +7,6 @@ class Router {
     
     public static function findController()
     {
-        if (!empty($_GET['section'])) {
-            
-        }
         return self::$defaultCtrl;
     }
     

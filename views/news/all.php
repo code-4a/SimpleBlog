@@ -1,6 +1,6 @@
 <html>
     <header>
-        <title>Новости</title>
+        <title>Записи</title>
         <meta charset="utf-8">
     </header>
     <body>

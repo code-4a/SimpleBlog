@@ -40,7 +40,8 @@ class DBConnect
      * @return object Объект типа $className
      */
     public function queryOne($query, $params = []) {
-        return $this->queryAll($query, $params)[0];
+        $res = $this->queryAll($query, $params);
+        return empty($res) ? false : $res[0];
     }
     
     /**

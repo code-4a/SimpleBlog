@@ -28,7 +28,7 @@ class News
         return $db->queryAll($query, [':v' => '%' . $value . '%']);
     }
 
-        protected function add()
+    protected function add()
     {
         $db = new DBConnect();
         $query = 'INSERT INTO News VALUES(NULL, :c, :t)';
