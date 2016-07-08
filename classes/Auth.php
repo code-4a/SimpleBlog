@@ -15,9 +15,15 @@ class Auth {
         return false;
     }
     
-    public function LogIn($user, $password)
+    public function LogIn($login, $password)
     {
-        //
+        if (false !== ($user = Users::getOneByLogin($login))) {
+            $hash = hash('sha256', $password);
+            if ($user->password == $hash) {
+                return true;
+            }
+        }
+        return false;
     }
     
     public function LogOut()
