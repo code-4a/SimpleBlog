@@ -1,24 +1,34 @@
+
+<!DOCTYPE html>
 <html>
-    <header>
-        <title>Записи</title>
-        <meta charset="utf-8">
-    </header>
-    <body>
-        <table style="width:70%">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="views/news/theme.css">
+</head>
+<body>
+    <div class="page">
+        <div class="content-left">
         <?php 
         foreach ($this->items as $item): ?>    
-            <tr>
-                <td><a href="index.php?id=<?= $item->id ?>">
-                        <?= $item->caption ?>
+            <div class="content-left-post">
+                <h2><?= $item->caption ?></h2>
+                <p>
+                    <?= $item->text ?>
+                </p>
+                <a href="index.php?id=<?= $item->id ?>">
+                        Полностью
                     </a>
-                </td>
-            </tr>
+            </div>
         <?php endforeach; ?>
-        </table>
-        <br><br>
-        <a href="index.php?add">Добавить новость</a>
-        <br>
-        <a href="index.php?find">Поиск</a>
-    </body>
+        </div>
+        <div class="content-right">
+            <ul class="menu">
+                <li><a href="index.php?add">Добавить новость</a></li>
+                <li><a href="index.php?find">Поиск</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
 </html>
 

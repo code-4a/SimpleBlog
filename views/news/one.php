@@ -1,16 +1,28 @@
+
+<!DOCTYPE html>
 <html>
-    <header>
-        <title>Запись</title>
-        <meta charset="utf-8">
-    </header>
-    <body>
-        <h3><?= $this->item->caption ?></h3>
-        <br><br>
-        <?= $this->item->text ?>
-        <br><br>
-        <a href="index.php?id=<?= $this->item->id ?>&edit">Редактировать</a>
-        <br>
-        <a href="index.php?id=<?= $this->item->id ?>&delete">Удалить</a>
-    </body>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="views/news/theme.css">
+</head>
+<body>
+    <div class="page">
+        <div class="content-left">
+            <div class="content-left-post">
+                <h2><?= $this->item->caption ?></h2>
+                <p>
+                    <?= $this->item->text ?>
+                </p>
+            </div>
+        </div>
+        <div class="content-right">
+            <ul class="menu">
+                <li><a href="index.php?id=<?= $this->item->id ?>&edit">Редактировать</a></li>
+                <li><a href="index.php?id=<?= $this->item->id ?>&delete">Удалить</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
 </html>
 
