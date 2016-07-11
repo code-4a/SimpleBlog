@@ -2,20 +2,12 @@
 
 class Auth {
     
-    public function __construct() 
+    public static function isLogged()
     {
-        session_start();
+        return (empty($_SESSION['LoggedIn'])) ? false : true;
     }
     
-    public function isLoggedIn()
-    {
-        if (!empty($_SESSION['LoggedIn'])) {
-            return true;
-        }
-        return false;
-    }
-    
-    public function LogIn($login, $password)
+    public static function LogIn($login, $password)
     {
         if (false !== ($user = Users::getOneByLogin($login))) {
             $hash = hash('sha256', $password);
@@ -26,7 +18,7 @@ class Auth {
         return false;
     }
     
-    public function LogOut()
+    public static function LogOut()
     {
         if (isset($_SESSION['LoggedIn'])) {
             unset($_SESSION['LoggedIn']);
