@@ -18,8 +18,10 @@
         </div>
         <div class="content-right">
             <ul class="menu">
+                <?php if (Auth::isLogged()): ?>
                 <li><a href="index.php?id=<?= $this->item->id ?>&edit">Редактировать</a></li>
                 <li><a href="index.php?id=<?= $this->item->id ?>&delete">Удалить</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

@@ -24,7 +24,10 @@
         </div>
         <div class="content-right">
             <ul class="menu">
+                <li><a href="index.php?auth">Войти</a></li>
+                <?php if (Auth::isLogged()): ?>
                 <li><a href="index.php?add">Добавить новость</a></li>
+                <?php endif; ?>
                 <li><a href="index.php?find">Поиск</a></li>
             </ul>
         </div>
