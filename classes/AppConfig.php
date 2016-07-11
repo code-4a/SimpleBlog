@@ -1,6 +1,6 @@
 <?php
 
-class Config {
+class AppConfig {
     
     private static $instance;
     private $data = [];
@@ -12,15 +12,18 @@ class Config {
     public static function getInstance()
     {
         if (empty(self::$instance)) {
-            self::$instance = new Config();
-            //self::$instance
+            self::$instance = new self();
+            self::$instance->loadConfigData();
         }
         return self::$instance;
     }
     
     private function loadConfigData()
     {
-        //
+        $arrOptions = Config::getAll();
+        foreach ($arrOptions as $option) {
+            $this->data[$option->key] = $option->value;
+        }
     }
 
     public function __set($name, $value)
