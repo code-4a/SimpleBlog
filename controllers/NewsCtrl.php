@@ -27,6 +27,10 @@ class NewsCtrl {
     
     public function add()
     {
+        if (!Auth::isLogged()) {
+            header('Location: index.php');
+            die;
+        }
         if ((!empty($_POST['caption'])) && (!empty($_POST['text']))) {
             $news = new News();
             $news->caption = $_POST['caption'];
@@ -42,6 +46,10 @@ class NewsCtrl {
     
     public function edit()
     {
+        if (!Auth::isLogged()) {
+            header('Location: index.php');
+            die;
+        }
         if ((!empty($_POST['caption'])) && (!empty($_POST['text'])) && !empty($_POST['id'])) {
             $news = new News();
             $news->caption = $_POST['caption'];
@@ -60,6 +68,10 @@ class NewsCtrl {
     
     public function delete()
     {
+        if (!Auth::isLogged()) {
+            header('Location: index.php');
+            die;
+        }
         if (!empty($_GET['id'])) {
             $news = new News();
             $news->id = $_GET['id'];
